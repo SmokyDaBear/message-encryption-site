@@ -1,0 +1,195 @@
+@font-face {
+  font-family: Major Mono Display;
+  src: url(../assets/Major_Mono_Display/MajorMonoDisplay-Regular.woff),
+    url(../assets/Major_Mono_Display/MajorMonoDisplay-Regular.ttf);
+  font-weight: normal;
+  font-style: normal;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Major Mono Display", monospace;
+}
+:root {
+  --color-one: rgb(17, 22, 19);
+  --color-one-text: #ffffff;
+  --color-two: rgba(12, 12, 12, 0.507);
+  --color-two-text: rgb(236, 233, 233);
+  --accent: rgba(171, 214, 168, 0.733);
+  --accent-two: rgb(22, 35, 46);
+}
+#header {
+  text-align: center;
+  background-color: var(--color-one);
+  color: var(--color-one-text);
+}
+#footer {
+  background-color: var(--color-one);
+  color: var(--color-one-text);
+  width: 100%;
+  height: auto;
+  min-height: 100px;
+}
+.fixed-bg {
+  background-image: url(../assets/hacking-bg.jpg);
+  background-size: cover;
+  background-color: var(--color-one);
+  background-position: center;
+  background-repeat: no-repeat;
+  position: fixed;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+.vignette {
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(
+    circle,
+    transparent 0%,
+    var(--color-one) 90%
+  );
+}
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+.flex-column.align-start {
+  margin-top: 24px;
+  align-items: flex-start;
+}
+.container {
+  padding: 8px;
+  width: 100%;
+  margin: auto;
+}
+button {
+  width: fit-content;
+  font-weight: bold;
+  max-width: 180px;
+  padding: 8px 16px;
+  color: var(--accent);
+  background-color: var(--accent-two);
+  border-radius: 30px;
+  border: 1px solid var(--accent);
+  transition: all 0.4s;
+}
+button:hover {
+  cursor: pointer;
+  color: var(--accent-two);
+  background-color: var(--accent);
+  box-shadow: inset 0 2px 8px rgba(73, 108, 143, 0.534),
+    5px 5px 16px rgba(73, 108, 143, 0.534);
+  transform: scale(1.02);
+}
+.inputs-container,
+.outputs-container {
+  max-width: 1200px;
+  min-height: 20vh;
+  margin: 100px auto;
+  background-color: var(--color-two);
+  color: var(--color-two-text);
+  border-radius: 8px;
+  border: 1px solid var(--accent);
+}
+#input-message {
+  width: 80%;
+  min-width: 200px;
+  height: 400px;
+  resize: none;
+}
+#encryption-key {
+  margin: auto;
+  font-family: monospace;
+  width: 400px;
+  max-height: 9em;
+  resize: none;
+}
+input,
+textarea {
+  border: 1px solid black;
+  padding: 5px;
+  border-radius: 8px;
+}
+textarea,
+p {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+input[type="number"] {
+  width: 3rem;
+}
+label {
+  width: 90%;
+  margin: auto;
+  gap: 8px;
+  font-size: 1.3rem;
+  text-shadow: 2px 2px 5px rgba(23, 34, 39, 0.61);
+}
+label.number {
+  position: relative;
+  display: inline-flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+label.number div {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+input + span::after {
+  position: absolute;
+  top: 13px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  font-weight: 900;
+  text-shadow: 0 0 2px black;
+  width: 4px;
+  height: 4px;
+  background-color: rgba(255, 255, 255, 0.87);
+  border: 1px solid rgb(95, 95, 95);
+  border-radius: 3px;
+  padding: 4px;
+  transition: all 0.3s;
+}
+input:invalid + span::after {
+  color: red;
+  content: "✖";
+  padding-left: 5px;
+}
+
+input:valid + span::after {
+  color: rgb(51, 224, 51);
+  content: "✓";
+  padding-left: 5px;
+}
+#output-message {
+  width: 80%;
+  background-color: white;
+  border-radius: 8px;
+  border: 1px solid black;
+  overflow-wrap: anywhere;
+}
+.fit-text {
+  color: black;
+  font-size: 0.9rem;
+  font-weight: 600;
+  max-width: 100%;
+  padding: 1rem;
+}
+
+@media (max-width: 1023px) {
+  #input-message,
+  #encryption-key,
+  #output-message {
+    width: 92vw;
+  }
+  #encryption-key {
+    height: 4rem;
+  }
+}
