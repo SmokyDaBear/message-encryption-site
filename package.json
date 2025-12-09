@@ -1,0 +1,17 @@
+{
+  "name": "message-encryption-site",
+  "version": "1.0.0",
+  "description": "Message encryption demo with ROT and rail fence ciphers",
+  "main": "scripts/encoder.js",
+  "scripts": {
+    "tests": "node tests.js"
+  },
+  "keywords": [
+    "encryption",
+    "cipher",
+    "rot",
+    "railfence"
+  ],
+  "license": "MIT",
+  "private": true
+}

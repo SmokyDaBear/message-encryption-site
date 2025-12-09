@@ -9,7 +9,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Major Mono Display", monospace;
+  font-family: monospace;
 }
 :root {
   --color-one: rgb(17, 22, 19);
@@ -18,6 +18,15 @@
   --color-two-text: rgb(236, 233, 233);
   --accent: rgba(171, 214, 168, 0.733);
   --accent-two: rgb(22, 35, 46);
+}
+h1 {
+  font-family: Major Mono Display, monospace;
+  font-size: 2.5rem;
+  color: var(--accent);
+  text-shadow: 2px 2px 5px rgba(23, 34, 39, 0.61);
+}
+button {
+  font-family: Major Mono Display, monospace;
 }
 #header {
   text-align: center;
@@ -50,6 +59,8 @@
     transparent 0%,
     var(--color-one) 90%
   );
+  backdrop-filter: blur(2px);
+  --webkit-backdrop-filter: blur(2px);
 }
 .flex-column {
   display: flex;
@@ -69,11 +80,10 @@
 button {
   width: fit-content;
   font-weight: bold;
-  max-width: 180px;
-  padding: 8px 16px;
+  max-width: 220px;
+  padding: 0.8rem 1.8rem;
   color: var(--accent);
   background-color: var(--accent-two);
-  border-radius: 30px;
   border: 1px solid var(--accent);
   transition: all 0.4s;
 }
@@ -91,8 +101,9 @@ button:hover {
   min-height: 20vh;
   margin: 100px auto;
   background-color: var(--color-two);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
   color: var(--color-two-text);
-  border-radius: 8px;
   border: 1px solid var(--accent);
 }
 #input-message {
@@ -104,7 +115,9 @@ button:hover {
 #encryption-key {
   margin: auto;
   font-family: monospace;
-  width: 400px;
+  width: 97%;
+  height: auto;
+  min-height: 4rem;
   max-height: 9em;
   resize: none;
 }
@@ -112,7 +125,6 @@ input,
 textarea {
   border: 1px solid black;
   padding: 5px;
-  border-radius: 8px;
 }
 textarea,
 p {
@@ -128,16 +140,35 @@ label {
   font-size: 1.3rem;
   text-shadow: 2px 2px 5px rgba(23, 34, 39, 0.61);
 }
-label.number {
-  position: relative;
+.number-input-container {
   display: inline-flex;
-  align-items: flex-end;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
 }
-label.number div {
-  display: inline-flex;
-  align-items: flex-end;
-  gap: 8px;
+.number-input-container button {
+  padding: 0.4rem 0.8rem;
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+.number-input-container button:first-of-type {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.number-input-container button:last-of-type {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+.number-input-container button:hover {
+  box-shadow: none;
+  transform: scale(1);
+}
+.number-input-container input {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  width: 4rem;
+  margin: 0;
 }
 
 input + span::after {
@@ -153,7 +184,6 @@ input + span::after {
   height: 4px;
   background-color: rgba(255, 255, 255, 0.87);
   border: 1px solid rgb(95, 95, 95);
-  border-radius: 3px;
   padding: 4px;
   transition: all 0.3s;
 }
@@ -169,9 +199,7 @@ input:valid + span::after {
   padding-left: 5px;
 }
 #output-message {
-  width: 80%;
   background-color: white;
-  border-radius: 8px;
   border: 1px solid black;
   overflow-wrap: anywhere;
 }
@@ -182,14 +210,18 @@ input:valid + span::after {
   max-width: 100%;
   padding: 1rem;
 }
-
-@media (max-width: 1023px) {
-  #input-message,
-  #encryption-key,
-  #output-message {
-    width: 92vw;
-  }
-  #encryption-key {
-    height: 4rem;
-  }
+.text-center {
+  text-align: center;
+}
+#footer {
+  padding: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 0.9rem;
+}
+.page-link {
+  color: var(--accent);
+  text-decoration: none;
 }

@@ -4,11 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/toaster.css" />
     <title>Encrypt Messages</title>
   </head>
   <body>
     <div class="fixed-bg">
       <div class="vignette"></div>
+    </div>
+    <div class="toaster" id="toaster">
+      <div id="toast-message">Welcome!</div>
     </div>
     <header id="header" class="container">
       <h1>Message Encrypter</h1>
@@ -22,30 +26,16 @@
         id="input-message"
         placeholder="Input your message to encrypt or decrypt"
       ></textarea>
-      <div class="flex-column align-start">
-        <label class="number" for="num-rails"
+      <div class="flex-column align-start container">
+        <!--NumberInputs inserted with JS-->
+        <label for="num-rails"
           >Number of Rails
-          <div>
-            <input
-              type="number"
-              name=" "
-              id="num-rails"
-              placeholder="3"
-              min="2"
-              max="12"
-            /><span></span></div
-        ></label>
-        <label class="number" for="num-rotations"
+          <div id="num-rails" class="number"></div>
+        </label>
+        <label for="num-rotations"
           >Number of Rotations
-          <div>
-            <input
-              type="number"
-              id="num-rotations"
-              placeholder="13"
-              min="1"
-              max="24"
-            /><span></span></div
-        ></label>
+          <div id="num-rotations" class="number"></div>
+        </label>
         <label for="encryption-key">Encryption Key </label
         ><textarea
           id="encryption-key"
@@ -59,9 +49,18 @@
     <div class="flex-column container outputs-container">
       <h2>Output</h2>
       <div id="output-message" class="fit-text"></div>
+      <button id="share-btn">Share Message</button>
     </div>
     <footer id="footer">
-      <p>&copy; 2025 Verdant Webworks</p>
+      <p class="text-center">&copy; 2025 Verdant Webworks</p>
+      |
+      <a
+        class="page-link"
+        href="https://smokydabear.github.io/#home"
+        target="_blank"
+      >
+        Need a Website?</a
+      >
     </footer>
   </body>
   <script src="./scripts/encoder.js"></script>
